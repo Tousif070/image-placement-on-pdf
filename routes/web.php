@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::group(['namespace' => 'App\Http\Controllers'], function() {
+
+    Route::view('/', 'index');
+
+    Route::post('submit', 'ImagePlacementController@submit')->name('submit');
+
 });
